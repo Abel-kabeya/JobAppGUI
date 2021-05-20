@@ -138,8 +138,32 @@ public class JobAppGui extends JFrame {
         btnApply = new JButton("Apply");
 
     }
+    
+     public void setGUI() {
+        
+        panelNorth2.setLayout(new GridLayout(2, 1));
+        panelCenter2.setLayout(new GridLayout(1, 1));
+        panelSouth2.setLayout(new GridLayout(1, 1));
 
-    public void setGUI() {
+        
+        panelNorth2.add(lblTitle);
+        
+        panelCenter2.add(lblSelectJ);
+        panelCenter2.add(lJobs);
+        
+        panelSouth2.add(btnApply);
+        
+        this.add(panelNorth2, BorderLayout.NORTH);
+        this.add(panelCenter2, BorderLayout.CENTER);
+        this.add(panelSouth2, BorderLayout.SOUTH);
+        this.pack();
+        this.setLocationRelativeTo(null);
+        this.setVisible(true);
+        
+
+    }
+
+    public void setGUI2() {
 
         panelNorth.setLayout(new GridLayout(2, 1));
         panelCenter.setLayout(new GridLayout(8, 3));
@@ -187,33 +211,11 @@ public class JobAppGui extends JFrame {
 
     }
 
-    public void setGUI2() {
-        
-        panelNorth2.setLayout(new GridLayout(2, 1));
-        panelCenter2.setLayout(new GridLayout(1, 1));
-        panelSouth2.setLayout(new GridLayout(1, 1));
-
-        
-        panelNorth2.add(lblTitle);
-        
-        panelCenter2.add(lblSelectJ);
-        panelCenter2.add(lJobs);
-        
-        panelSouth2.add(btnApply);
-        
-        this.add(panelNorth2, BorderLayout.NORTH);
-        this.add(panelCenter2, BorderLayout.CENTER);
-        this.add(panelSouth2, BorderLayout.SOUTH);
-        this.pack();
-        this.setLocationRelativeTo(null);
-        this.setVisible(true);
-        
-
-    }
+   
 
     public static void main(String[] args) {
 
-        //new JobAppGui().setGUI();
+        new JobAppGui().setGUI();
         new JobAppGui().setGUI2();
 
     }
