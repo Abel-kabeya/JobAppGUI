@@ -49,10 +49,15 @@ public class JobAppGui extends JFrame {
     private JLabel lblErrorQualification;
 
     private JPanel panelSouth;
-    private JLabel lblSaveProceed;
     private JButton btnNext;
     private JButton btnSave;
-    
+
+    private JPanel panelNorth2;
+    private JPanel panelCenter2;
+    private JLabel lblSelectJ;
+    private JList lJobs;
+    private JButton btnApply;
+    private JPanel panelSouth2;
 
     private Font ft1, ft2;
 
@@ -62,7 +67,7 @@ public class JobAppGui extends JFrame {
         ft2 = new Font("Arial", Font.BOLD, 14);
 
         panelNorth = new JPanel();
-        
+
         lblTitle = new JLabel("LinkUp Job App", SwingConstants.CENTER);
 
         panelCenter = new JPanel();
@@ -121,12 +126,22 @@ public class JobAppGui extends JFrame {
         panelSouth = new JPanel();
         btnNext = new JButton("Next");
         btnSave = new JButton("Save");
-       
+
+        panelNorth2 = new JPanel();
+        panelCenter2 = new JPanel();
+        panelSouth2 = new JPanel();
+        
+        lblSelectJ = new JLabel(" Select Job: ");
+        String items[] = {" Computer scientist "," Computer programmer ", " Software engineer "," Web developer ", " Systems analyst ", " Network engineer ", 
+            " Database administrator ", " IT security specialist ", " Network administrator ", " Technical support engineer"};
+        lJobs = new JList(items);
+        btnApply = new JButton("Apply");
+
     }
 
     public void setGUI() {
 
-        panelNorth.setLayout(new GridLayout(0, 1));
+        panelNorth.setLayout(new GridLayout(2, 1));
         panelCenter.setLayout(new GridLayout(8, 3));
         panelSouth.setLayout(new GridLayout(1, 1));
 
@@ -160,11 +175,8 @@ public class JobAppGui extends JFrame {
         panelCenter.add(cboQualification);
         panelCenter.add(lblErrorQualification);
 
-        // panelCenter.add(lblSaveProceed);
-       
         panelSouth.add(btnSave);
         panelSouth.add(btnNext);
-        // panelCenter.add(btnSave);
 
         this.add(panelNorth, BorderLayout.NORTH);
         this.add(panelCenter, BorderLayout.CENTER);
@@ -175,9 +187,34 @@ public class JobAppGui extends JFrame {
 
     }
 
+    public void setGUI2() {
+        
+        panelNorth2.setLayout(new GridLayout(2, 1));
+        panelCenter2.setLayout(new GridLayout(1, 1));
+        panelSouth2.setLayout(new GridLayout(1, 1));
+
+        
+        panelNorth2.add(lblTitle);
+        
+        panelCenter2.add(lblSelectJ);
+        panelCenter2.add(lJobs);
+        
+        panelSouth2.add(btnApply);
+        
+        this.add(panelNorth2, BorderLayout.NORTH);
+        this.add(panelCenter2, BorderLayout.CENTER);
+        this.add(panelSouth2, BorderLayout.SOUTH);
+        this.pack();
+        this.setLocationRelativeTo(null);
+        this.setVisible(true);
+        
+
+    }
+
     public static void main(String[] args) {
 
-        new JobAppGui().setGUI();
+        //new JobAppGui().setGUI();
+        new JobAppGui().setGUI2();
 
     }
 
