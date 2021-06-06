@@ -13,6 +13,14 @@ public class JobAppGui extends JFrame implements ActionListener {
 
     private JPanel panelNorth;
     private JLabel lblTitle;
+    
+    private JPanel panelTop;
+    
+    private JLabel lblSearch;
+    private JTextField txtSearchJ;
+    
+    private JTextField txtLocation;
+    private JTextField txtSalary;
 
     private JPanel panelCenter;
     private JLabel lblSelectJ;
@@ -23,6 +31,8 @@ public class JobAppGui extends JFrame implements ActionListener {
     private Font ft1, ft2;
 
     public JobAppGui() {
+        
+        super(" LinkUp JobApp");
 
         ft1 = new Font("Arial", Font.BOLD | Font.ITALIC, 16);
         ft2 = new Font("Arial", Font.BOLD, 14);
@@ -30,7 +40,18 @@ public class JobAppGui extends JFrame implements ActionListener {
         panelNorth = new JPanel();
 
         lblTitle = new JLabel("LinkUp Job App", SwingConstants.CENTER);
-
+        
+        panelTop = new JPanel();
+        lblSearch = new JLabel(" Search: ");
+        txtSearchJ = new JTextField(" Search Jobs ");
+        txtLocation = new JTextField(" Location ");
+        txtSalary = new JTextField(" Salary ");
+        lblSearch.setEnabled(false);
+        txtSearchJ.setEnabled(false);
+        txtLocation.setEnabled(false);
+        txtSalary.setEnabled(false);
+        
+        
         panelNorth = new JPanel();
         panelCenter = new JPanel();
         panelSouth = new JPanel();
@@ -45,11 +66,17 @@ public class JobAppGui extends JFrame implements ActionListener {
 
     public void setGUI() {
 
-        panelNorth.setLayout(new GridLayout(2, 1));
+        //panelNorth.setLayout(new GridLayout(2, 1));
+        panelTop.setLayout(new GridLayout(1,5));
         panelCenter.setLayout(new GridLayout(1, 1));
         panelSouth.setLayout(new GridLayout(1, 1));
 
-        panelNorth.add(lblTitle);
+       // panelNorth.add("");
+        
+        panelTop.add(lblSearch);
+        panelTop.add(txtSearchJ);
+        panelTop.add(txtLocation);
+        panelTop.add(txtSalary);
 
         panelCenter.add(lblSelectJ);
         panelCenter.add(lJobs);
@@ -59,6 +86,7 @@ public class JobAppGui extends JFrame implements ActionListener {
         btnApply.addActionListener(this);
 
         this.add(panelNorth, BorderLayout.NORTH);
+        this.add(panelTop, BorderLayout.NORTH);
         this.add(panelCenter, BorderLayout.CENTER);
         this.add(panelSouth, BorderLayout.SOUTH);
         this.pack();
@@ -88,7 +116,7 @@ public class JobAppGui extends JFrame implements ActionListener {
         if (e.getSource() == btnApply) {
 
         if  (isSelectedItem()) {    
-            this.setVisible(false);
+           this.setVisible(false);
             new JobAppGui2().setGUI();
             }
         }
